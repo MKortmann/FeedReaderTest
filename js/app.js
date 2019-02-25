@@ -129,7 +129,7 @@ $(function() {
     /* When the menu icon is clicked on, we need to toggle a class
      * on the body to perform the hiding/showing of our menu.
      */
-    // menuIcon.on('click', function() {
-    //     $('body').toggleClass('menu-hidden');
-    // });
+    menuIcon.on('click', function() {
+        $('body').toggleClass('menu-hidden');
+    });
 }());

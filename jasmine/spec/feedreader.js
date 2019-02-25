@@ -81,39 +81,32 @@ $(function() {
           */
           it("is the menu change visibility?", () => {
 
+            /*Getting the hamburger menu from DOM*/
             let hamburger = document.querySelector("i");
-
+            /*Get the list of the body class*/
             let bodyClass = document.querySelector("body").classList;
            //assert
+           /*At begging the menu should be hidden, in this case it should
+           have the class: menu-hidden that hides the menu*/
              expect(bodyClass[0]).toBeDefined();
              expect(bodyClass).toContain("menu-hidden");
 
             /**1st Click*/
-            setTimeout(function() {
-
-              hamburger.click();
-              firstClick();
-            }, 1000);
-
-            function firstClick() {
-            let bodyClass = document.querySelector("body").classList;
+            /*If you click at the menu hamburger, it should remove the class
+            menu-hidden from the body. So, the menu will appear*/
+            hamburger.click();
+            bodyClass = document.querySelector("body").classList;
              //assert
              expect(bodyClass[0]).not.toBeDefined();
-            }
 
-            /**2nd Click*/
-            setTimeout(function() {
+             /**2nd Click*/
+             /*If you click again, the sidenav should disappear*/
+             hamburger.click();
+             bodyClass = document.querySelector("body").classList;
+              //assert
+            expect(bodyClass[0]).toBeDefined();
+            expect(bodyClass).toContain("menu-hidden");
 
-              hamburger.click();
-              secondClick();
-           }, 1300);
-
-           function secondClick() {
-             let bodyClass = document.querySelector("body").classList;
-            //assert
-              expect(bodyClass[0]).toBeDefined();
-              expect(bodyClass).toContain("menu-hidden");
-           }
 
           });
 
