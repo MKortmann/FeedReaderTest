@@ -121,21 +121,39 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
          beforeEach(function(done) {
-           setTimeout(function() {
-             done();
-           },100);
+           loadFeed(0, done);
          });
 
-         it("Loadfeed called,finished and has >= 1 single", function() {
+         it("Loadfeed finished and has at least one single", function(done) {
            const feedContainer = document.querySelector(".feed");
            expect(feedContainer.length).not.toBe(0);
-
+           done(); /*Important: signal to the framework that this function rely
+           upon that asynchronous execution.*/
          });
       });
     /* TODO: Write a new test suite named "New Feed Selection" */
-
+    describe("New Feed Selection", function() {
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+
+         beforeEach(function(done) {
+           loadFeed(0, done);
+         });
+
+         it("Loadfeed finished, content actually changes", function(done) {
+          this.feedContainerZero = document.querySelector(".feed").children[0];
+          console.log(this.feedContainerZero);
+          loadFeed(1, done);
+          /*done(); /*Important: signal to the framework that this function rely
+           upon that asynchronous execution.*/
+         });
+
+         afterEach(function(){
+           this.feedContainerFirst = document.querySelector(".feed").children[0];
+           console.log(this.feedContainerFirst);
+           expect(this.feedContainerZero).not.toEqual(this.feedContainerFirst);
+         });
+      });
 }());
