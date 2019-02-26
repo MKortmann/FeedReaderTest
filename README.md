@@ -21,6 +21,10 @@ The project consist to develop a bundle of test suites to a given application. T
     - Loadfeed finished so it should have at least one single 
  - New Feed Selection
     - Loadfeed finished, content actually changes
+    
+## Run the application
+
+just open the file: index.html in your browser.
 
 ## Documentations
 
