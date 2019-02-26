@@ -52,7 +52,7 @@ $(function() {
 		 * hidden by default.
 		 */
 
-		it("is the menu element hidden by default?", () => {
+		it("the menu element should be hidden by default", () => {
 			let bodyClass = document.querySelector("body").classList;
 			expect(bodyClass[0]).toBeDefined();
 			expect(bodyClass).toContain("menu-hidden");
